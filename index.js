@@ -26,12 +26,16 @@ for (const file of commandsFiles){
         console.log(`Pronto! Login realizado com ${filePath} esta com "data" ou "execute ausente"`)
     }
 }
-console.log(client.commands)
 
-
+// Log in to Discord with your client's token
 client.once(Events.ClientReady, c => {
 	console.log(`Pronto! Login realizado com ${c.user.tag}`);
 });
-
-// Log in to Discord with your client's token
 client.login(TOKEN);
+
+//interação com o bot
+client.on(Events.InteractionCreate, interaction =>{
+    if(!interaction.isChatInputCommand()) 
+    return
+    console.log(interaction)
+});
