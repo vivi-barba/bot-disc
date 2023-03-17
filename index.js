@@ -1,6 +1,9 @@
 // classes para importar o discord.js
-const { Client, Events, GatewayIntentBits } = require('discord.js');
+const { Client, Events, GatewayIntentBits, Collection } = require('discord.js');
 
+// criando nova instancia client 
+const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+client.commands = new Collection();
 // require dotenv 
 const dotenv = require('dotenv');
 dotenv.config();
@@ -12,10 +15,18 @@ const path = require("node:path");
 
 const commandsPath = path.join(__dirname, "slash_commands")
 const commandsFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(".js"))
-console.log(commandsFiles)
 
-// criando nova instancia client 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+for (const file of commandsFiles){
+    const filePath = path.join(commandsPath, file);
+    const command = require(filePath); 
+
+    if("data" in command && "execute" in command){
+        client.commands.set(command.data.name, command)
+    }else{
+        console.log(`Pronto! Login realizado com ${filePath} esta com "data" ou "execute ausente"`)
+    }
+}
+console.log(client.commands)
 
 
 client.once(Events.ClientReady, c => {
