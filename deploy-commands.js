@@ -12,7 +12,7 @@ const commandsFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith(
 
 const commands = [];
 
-for (const file in commandsFiles){
+for (const file of commandsFiles){
     const command = require(`./slash_commands/${file}`);
     commands.push(command.data.toJSON());
 }
