@@ -8,7 +8,12 @@ const exampleEmbed = new EmbedBuilder()
 		{ name: 'Var', value: 'Declara uma variável, opcionalmente, inicializando-a com um valor.', inline: true },
 		{ name: 'Let', value: 'Declara uma variável local de escopo do bloco, opcionalmente, inicializando-a com um valor.', inline: true },
 		{ name: 'Const', value: 'Declara uma constante de escopo de bloco, apenas de leitura.', inline: true },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Se ainda ficou com dúvidas', iconURL: 'https://i.imgur.com/AfFp7pu.png' , value: 'https://www.youtube.com/watch?v=sIXUNUqnoXI' },
+
 	)
+	
+
 
 module.exports = {
     data: new SlashCommandBuilder()
