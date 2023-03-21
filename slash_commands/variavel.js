@@ -2,7 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder } = require("discord.js")
 
 const exampleEmbed = new EmbedBuilder()
 	.setColor("Yellow")
-	.setTitle("Variável Javascript")
+	.setTitle("Variáveis")
 	.addFields(
         { name: '\u200B', value: '\u200B' },
 		{ name: 'Var', value: 'Declara uma variável, opcionalmente, inicializando-a com um valor.', inline: true },
@@ -17,8 +17,8 @@ const exampleEmbed = new EmbedBuilder()
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("js_variable")
-        .setDescription("Aprendendo sobre variáveis com javascript"),
+        .setName("variável")
+        .setDescription("Aprendendo sobre variáveis"),
 
     async execute(interaction) {
         await interaction.reply({ embeds: [exampleEmbed] })
