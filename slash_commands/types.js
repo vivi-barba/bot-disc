@@ -26,7 +26,7 @@ const exampleEmbed = new EmbedBuilder()
     {
       name: "boolean",
       value:
-        "Em qualquer linguagem de programação de computador, uma string é uma sequência de CARACTERES usada para representar texto.",
+        "Na ciência da computação, um booleano é um tipo de dado lógico que pode ter apenas os valores true ou false",
       inline: true,
     },
     {
